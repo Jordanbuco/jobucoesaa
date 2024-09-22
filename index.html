@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>JoBuCo</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="w50">
+                <h1 class="text-header">Pagina con ALPINE</h1 c>
+            </div>
+            <div class="w50">
+                <ul class="menu-header">
+                    <li class="menu-items"><a href="#" class="text-header">Inicio</a></li>
+                    <li class="menu-items"><a href="#" class="text-header">Planes</a></li>
+                    <li class="menu-items"><a href="#" class="text-header">Nosotros</a></li>
+                    <li class="menu-items"><a href="#" class="text-header">Ingresar</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <img src="SRCFOTO" class="banner-img" alt="imagen de banner">
+            <div class="container-banner">
+                <h2>Emprende sin limites!</h2>
+            </div>
+        </section>
+
+        <section class="imginfo">
+            <h3 class="titulos">Haz negocios en:</h3>
+            <div class="container">
+                <article class="imginfo-article" x-data="{ open: false }">
+                    <div class="imginfo-articlecontent" @click="open = true">
+                        <img src="SRCFOTO" class="imagen-info" alt="img1">
+                        <h3>Noruega</h3>
+                        <p x-show="open" @click.away="open = false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sit ipsam quo harum
+                            voluptatibus distinctio dignissimos! Ab, dolorum! Voluptates vel laborum inventore hic
+                            facilis dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
+                    </div>
+                </article>
+                <article class="imginfo-article">
+                <div class="imginfo-articlecontent">
+                    <img src="SRCFOTO" class="imagen-info" alt="img1">
+                    <h3>Noruega</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sit ipsam quo harum
+                        voluptatibus distinctio dignissimos! Ab, dolorum! Voluptates vel laborum inventore hic facilis
+                        dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
+                </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="planes">
+            <h3 class="titulos">Crea tu lista de deseos</h3>
+            <div class="container">
+                <div class="planes-form">
+                    <div class="planes-container">
+                        <form>
+                            <input type="text">
+                            <button class="planes-btn type=" submit">Agregar</button>
+                        </form>
+                        <div class="planes-container">
+                            <ul>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tabinfo container">
+            <h3></h3>
+            <div class="tabcontainer">
+                <button></button>
+                <button></button>
+                <button></button>
+            </div>
+            <div class="tabresultado">
+                <div class="parrafo-tab">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                    voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
+                    suscipit aliquam distinctio tempora nostrum reiciendis rerum!
+                    <!--DIV CLAS QUE NO COPIO
+                -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p class="icon-copyright">Todos los derechos a los informaticos sin limites | <span><a href="#">ENLACE</a></span></p>
+    </footer>
+</body>
+
+</html>
