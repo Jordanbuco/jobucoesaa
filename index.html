@@ -36,7 +36,6 @@
         </section>
 
         <section class="imginfo">
-            <h3 class="titulos">Haz negocios en:</h3>
             <div class="container">
                 <article class="imginfo-article" x-data="{ open: false }">
                     <div class="imginfo-articlecontent" @click="open = true">
@@ -47,11 +46,11 @@
                             facilis dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
                     </div>
                 </article>
-                <article class="imginfo-article">
-                <div class="imginfo-articlecontent">
+                <article class="imginfo-article" x-data="{ open: false }"> 
+                <div class="imginfo-articlecontent" @click="open = true">
                     <img src="imgs/3st.jpg" class="imagen-info" alt="img1">
                     <h3>Noruega</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sit ipsam quo harum
+                    <p x-show="open" @click.away="open = false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sit ipsam quo harum
                         voluptatibus distinctio dignissimos! Ab, dolorum! Voluptates vel laborum inventore hic facilis
                         dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
                 </div>
