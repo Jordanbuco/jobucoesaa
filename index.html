@@ -62,6 +62,26 @@
             </div>
         </section>
 
+        <section class="notes">
+            <div class="container">
+                <div x-data="cargarDatos()">
+                    <h1>NOTAS DE PRENSA...</h1>
+                    <template x-if="cargando">
+                    <p>Cargando datos...</p>
+                    </template>
+
+                    <ul>
+                    <template x-for="producto in productos" :key="producto.id">
+                        <li>
+                            <span x-text="producto.nombre"></span> - 
+                            <span x-text="producto.precio"></span> USD
+                        </li>
+                    </template>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section class="planes">
             <h3 class="titulos">Crea tu lista de deseos</h3>
             <div class="container">
@@ -87,19 +107,25 @@
             </div>
         </section>
 
-        <section class="tabinfo container">
-            <h3></h3>
+        <section class="tabinfo container" x-data="{ tab: 'foo'}">
+            <h3 class="titulos">TIPS</h3>
             <div class="tabcontainer">
-                <button></button>
-                <button></button>
-                <button></button>
+                <button class="btn-tab icon-dollar" :class="{'active': tab === 'foo'}" @click="tab = 'foo'">Buscar</button>
+                <button class="btn-tab icon-heartbeat" :class="{'active': tab === 'foo2'}" @click="tab = 'foo2'">Seguro</button>
+                <button class="btn-tab icon-camera" :class="{'active': tab === 'foo3'}" @click="tab = 'foo3'">Diviertete</button>
             </div>
             <div class="tabresultado">
-                <div class="parrafo-tab">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                <div class="parrafo-tab" x-show="tab === 'foo'">foooooooooLorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
                     voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
                     suscipit aliquam distinctio tempora nostrum reiciendis rerum!
-                    <!--DIV CLAS QUE NO COPIO
-                -->
+                </div>
+                <div class="parrafo-tab" x-show="tab === 'foo2'">fooooooo2Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                    voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
+                    suscipit aliquam distinctio tempora nostrum reiciendis rerum!
+                </div>
+                <div class="parrafo-tab" x-show="tab === 'foo3'">fooooooo3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                    voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
+                    suscipit aliquam distinctio tempora nostrum reiciendis rerum!
                 </div>
             </div>
         </section>
@@ -112,6 +138,21 @@
 </body>
 
 <script>
+
+    function cargarDatos(){
+        return {
+            productos: [],
+            cargando: true,
+
+            async init() {
+                const response = await fetch('https://raw.githubusercontent.com/Jordanbuco/Data/refs/heads/main/jobucoesaa/datos.json');
+                const data = await response.json();
+                this.productos = data;
+                this.cargando = false;
+            }
+        }
+    }
+
     function metas() {
     return {
         cantidad: 2,

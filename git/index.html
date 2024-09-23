@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conexión JSON con Alpine.js</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body>
+
+    <div x-data="cargarDatos()">
+        <h1>Productos desde JSON</h1>
+
+        <template x-if="cargando">
+            <p>Cargando datos...</p>
+        </template>
+
+        <ul>
+            <template x-for="producto in productos" :key="producto.id">
+                <li>
+                    <span x-text="producto.nombre"></span> - 
+                    <span x-text="producto.precio"></span> USD
+                </li>
+            </template>
+        </ul>
+    </div>
+
+    <script>
+        function cargarDatos() {
+            return {
+                productos: [],
+                cargando: true,
+
+                async init() {
+                    const response = await fetch('https://raw.githubusercontent.com/Jordanbuco/Data/refs/heads/main/jobucoesaa/datos.json');
+                    const data = await response.json();
+                    this.productos = data;
+                    this.cargando = false;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
