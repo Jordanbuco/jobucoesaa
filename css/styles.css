@@ -92,6 +92,13 @@ header {
     font-weight: bold;
 }
 
+/* MAIN Section */
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+
 /* Info Section */
 .imginfo {
     padding: 40px 0;
