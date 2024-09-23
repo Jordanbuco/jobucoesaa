@@ -35,6 +35,7 @@
                 <h2>Emprende sin limites!</h2>
             </div>
         </section>
+        
 
         <section class="imginfo">
             <div class="container">
@@ -187,6 +188,15 @@
     }
 }
 
+//INCLUIR HERO ANIMATION EN H2 ACTUAL "SIN LIMITES"
+ // Cargar el componente independiente
+        fetch('/componentes/hero.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('hero').innerHTML = html;
+                // Iniciar AlpineJS para el componente cargado
+                Alpine.initTree(document.getElementById('hero'));
+            });
 
 </script>
 
