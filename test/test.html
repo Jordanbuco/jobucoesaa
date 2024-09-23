@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componente con AlpineJS</title>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+    <div id="hero"></div>
+
+    <script>
+        // Cargar el componente independiente
+        fetch('../componentes/hero.html')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('hero').innerHTML = html;
+                // Iniciar AlpineJS para el componente cargado
+                Alpine.initTree(document.getElementById('hero'));
+            });
+    </script>
+
+</body>
+</html>

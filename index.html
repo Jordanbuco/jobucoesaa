@@ -67,16 +67,16 @@
                 <div x-data="cargarDatos()">
                     <h1>NOTAS DE PRENSA...</h1>
                     <template x-if="cargando">
-                    <p>Cargando datos...</p>
+                        <p>Cargando datos...</p>
                     </template>
 
                     <ul>
-                    <template x-for="producto in productos" :key="producto.id">
-                        <li>
-                            <span x-text="producto.nombre"></span> - 
-                            <span x-text="producto.precio"></span> USD
-                        </li>
-                    </template>
+                        <template x-for="producto in productos" :key="producto.id">
+                            <li>
+                                <span x-text="producto.nombre"></span> -
+                                <span x-text="producto.precio"></span> USD
+                            </li>
+                        </template>
                     </ul>
                 </div>
             </div>
@@ -115,15 +115,18 @@
                 <button class="btn-tab icon-camera" :class="{'active': tab === 'foo3'}" @click="tab = 'foo3'">Diviertete</button>
             </div>
             <div class="tabresultado">
-                <div class="parrafo-tab" x-show="tab === 'foo'">foooooooooLorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                <div class="parrafo-tab" x-show="tab === 'foo'">foooooooooLorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Animi unde officiis
                     voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
                     suscipit aliquam distinctio tempora nostrum reiciendis rerum!
                 </div>
-                <div class="parrafo-tab" x-show="tab === 'foo2'">fooooooo2Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                <div class="parrafo-tab" x-show="tab === 'foo2'">fooooooo2Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Animi unde officiis
                     voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
                     suscipit aliquam distinctio tempora nostrum reiciendis rerum!
                 </div>
-                <div class="parrafo-tab" x-show="tab === 'foo3'">fooooooo3 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi unde officiis
+                <div class="parrafo-tab" x-show="tab === 'foo3'">fooooooo3 Lorem ipsum dolor sit, amet consectetur
+                    adipisicing elit. Animi unde officiis
                     voluptatibus repellat, repudiandae quis accusantium porro nobis, at omnis molestiae ut! Corporis
                     suscipit aliquam distinctio tempora nostrum reiciendis rerum!
                 </div>
@@ -138,7 +141,7 @@
 </body>
 
 <script>
-
+    //FUNCION CARGAR LOS DATOS JSON DE GITHUB
     function cargarDatos(){
         return {
             productos: [],
@@ -153,6 +156,9 @@
         }
     }
 
+
+
+    //FUNCION METAS PARA RECIBIR DATOS DE LOS DATOS YA CARGADOS
     function metas() {
     return {
         cantidad: 2,
@@ -180,7 +186,8 @@
         }
     }
 }
-        
+
+
 </script>
 
 </html>

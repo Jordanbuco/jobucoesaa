@@ -5,18 +5,39 @@
   <title>Title</title>
   <meta charset="utf-8">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      displey: flex;
+    }
+    section {
+      alig-items: center;
+      padding: 20px 50px;
+      margin: 20px;
+    }
+    </body>
+  </style>
+
 
 </head>
 
 <body>
-  <h1>x-data</h1>
-  <div x-data="{ open: false }">
-    <button @click="open = ! open">Toggle Content</button>
+  <section>
+    <h1>x-data</h1>
+    <div x-data="{ open: false }">
+      <button @click="open = ! open">Toggle Content</button>
 
-    <div x-show="open">
-      Content...
+      <div x-show="open">
+        Content...
+      </div>
     </div>
+
+  </section>
+
+  <section>
     <div x-data="{ foo: 'bar' }">
       <span x-text="foo"><!-- Will output: "bar" --></span>
 
@@ -28,7 +49,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </body>
 
 </html>
