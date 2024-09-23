@@ -41,19 +41,22 @@
                     <div class="imginfo-articlecontent" @click="open = true">
                         <img src="imgs/2in.jpg" class="imagen-info" alt="img1">
                         <h3>Noruega</h3>
-                        <p x-show="open" @click.away="open = false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sit ipsam quo harum
+                        <p x-show="open" @click.away="open = false">Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Incidunt sit ipsam quo harum
                             voluptatibus distinctio dignissimos! Ab, dolorum! Voluptates vel laborum inventore hic
                             facilis dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
                     </div>
                 </article>
-                <article class="imginfo-article" x-data="{ open: false }"> 
-                <div class="imginfo-articlecontent" @click="open = true">
-                    <img src="imgs/3st.jpg" class="imagen-info" alt="img1">
-                    <h3>Noruega</h3>
-                    <p x-show="open" @click.away="open = false">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt sit ipsam quo harum
-                        voluptatibus distinctio dignissimos! Ab, dolorum! Voluptates vel laborum inventore hic facilis
-                        dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
-                </div>
+                <article class="imginfo-article" x-data="{ open: false }">
+                    <div class="imginfo-articlecontent" @click="open = true">
+                        <img src="imgs/3st.jpg" class="imagen-info" alt="img1">
+                        <h3>Noruega</h3>
+                        <p x-show="open" @click.away="open = false">Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit. Incidunt sit ipsam quo harum
+                            voluptatibus distinctio dignissimos! Ab, dolorum! Voluptates vel laborum inventore hic
+                            facilis
+                            dolores perspiciatis itaque, quo deleniti! Mollitia?</p>
+                    </div>
                 </article>
             </div>
         </section>
@@ -61,15 +64,21 @@
         <section class="planes">
             <h3 class="titulos">Crea tu lista de deseos</h3>
             <div class="container">
-                <div class="planes-form">
+                <div class="planes-form" x-data="metas()">
                     <div class="planes-container">
-                        <form>
-                            <input type="text">
-                            <button class="planes-btn type=" submit">Agregar</button>
+                        <form @submit.prevent="agregar()">
+                            <input type="text" x-model="titulo"/>
+                            <button class="planes-btn type="submit">Agregar</button>
                         </form>
                         <div class="planes-container">
                             <ul>
-
+                                <template x-for="metaTomada in metas" :key="metaTomada.id">
+                                    <li class="{ 'is-complete': metaTomada.terminada === true}">
+                                        <span x-text="metaTomada.titulo"></span>
+                                        <input class="planes-che" x-model="metaTomada.terminada" type="checkbox"/>
+                                        <button class="planes-remove" @click="quitar(metaTomada.id)">X</button>
+                                    </li>
+                                </template>
                             </ul>
                         </div>
                     </div>
@@ -95,8 +104,41 @@
         </section>
     </main>
     <footer>
-        <p class="icon-copyright">Todos los derechos a los informaticos sin limites | <span><a href="#">ENLACE</a></span></p>
+        <p class="icon-copyright">Todos los derechos a los informaticos sin limites |
+            <span><a href="#">ENLACE</a></span>
+        </p>
     </footer>
 </body>
+
+<script>
+    function metas() {
+    return {
+        cantidad: 2,
+        titulo: '',
+        metas: [
+            {
+                id: 1,
+                titulo: "Viajar a Dubai",
+                terminada: true
+            }
+        ],
+        agregar() {
+            // verificar
+            if (this.titulo.trim() === '') return;
+            //agregamos
+            this.metas.push({
+                id: this.cantidad++,
+                titulo: this.titulo,
+                terminada: false
+            });
+            this.titulo = '';
+        },
+        quitar(eliminarMeta) {
+            this.metas = this.metas.filter(metaTomada => metaTomada.id != eliminarMeta);
+        }
+    }
+}
+        
+</script>
 
 </html>

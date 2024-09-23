@@ -99,10 +99,6 @@ header {
     display: flex;
 }
 
-.titulos {
-    display: flex;
-}
-
 .imginfo-article {
     align-items: center;
     text-align: center;
@@ -134,7 +130,6 @@ header {
     display: block;
 }
 
-/* Estilos generales para las imágenes de los artículos */
 .imagen-info {
     width: 100%;           /* La imagen ocupará todo el ancho del contenedor */
     height: 200px;         /* Fija una altura panorámica */
@@ -171,6 +166,27 @@ header {
 .planes-btn:hover {
     background-color: #64FFDA;
     color: #0A192F;
+}
+
+.planes-container {
+    margin-top: 20px;
+}
+
+.planes-che {
+    margin-left: 10px;
+}
+
+.planes-remove {
+    padding: 5px 10px;
+    background-color: #FF6B6B;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.planes-remove:hover {
+    background-color: #FF4C4C;
 }
 
 /* Tab Section */
